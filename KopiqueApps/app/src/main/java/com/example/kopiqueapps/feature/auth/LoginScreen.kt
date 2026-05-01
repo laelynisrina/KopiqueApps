@@ -37,8 +37,7 @@ fun LoginScreen() {
         onPasswordChange = { password = it },
         onLoginClick = {
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                backStack.add(Routes.ListMenuRoute)
-            }
+                backStack.add(Routes.HomeRoute)            }
         }
     )
 }

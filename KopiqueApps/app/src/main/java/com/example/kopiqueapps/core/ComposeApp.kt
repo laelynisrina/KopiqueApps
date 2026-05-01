@@ -11,10 +11,11 @@ import androidx.navigation3.ui.NavDisplay
 import com.example.kopiqueapps.feature.auth.LoginScreen
 import com.example.kopiqueapps.feature.detail.DetailScreen
 import com.example.kopiqueapps.feature.home.HomeScreen
+import com.example.kopiqueapps.feature.add.AddCoffeeScreen
 
 @Composable
 fun ComposeApp() {
-    val backStack = rememberNavBackStack(Routes.AuthRoute)
+    val backStack = rememberNavBackStack(Routes.LoginRoute)
 
     MaterialTheme {
         CompositionLocalProvider(LocalBackStack provides backStack) {
@@ -25,8 +26,19 @@ fun ComposeApp() {
                     rememberViewModelStoreNavEntryDecorator()
                 ),
                 entryProvider = entryProvider {
-                    entry<Routes.AuthRoute> { LoginScreen() }
-                    entry<Routes.ListMenuRoute> { HomeScreen() }
+
+                    entry<Routes.LoginRoute> {
+                        LoginScreen()
+                    }
+
+                    entry<Routes.HomeRoute> {
+                        HomeScreen()
+                    }
+
+                    entry<Routes.AddCoffeeRoute> {
+                        AddCoffeeScreen()
+                    }
+
                     entry<Routes.DetailMenuRoute> { route ->
                         DetailScreen(name = route.id)
                     }

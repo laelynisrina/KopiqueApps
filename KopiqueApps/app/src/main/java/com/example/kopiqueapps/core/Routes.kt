@@ -1,21 +1,16 @@
 package com.example.kopiqueapps.core
 
 import androidx.navigation3.runtime.NavKey
-import kotlinx.serialization.Serializable
 
-@Serializable
-object Routes {
-    @Serializable
-    data object AuthRoute : NavKey
+sealed class Routes : NavKey {
 
-    @Serializable
-    data object ListMenuRoute : NavKey
+    data object AuthRoute : Routes()
 
-    @Serializable
-    data object CreateMenuRoute : NavKey
+    data object LoginRoute : Routes()
 
-    @Serializable
-    data class DetailMenuRoute(
-        val id: String
-    ) : NavKey
+    data object HomeRoute : Routes()
+
+    data object AddCoffeeRoute : Routes()
+
+    data class DetailMenuRoute(val id: String) : Routes()
 }
