@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         btnWA.setOnClickListener {
             val nomorWA = "62882007844390" // Gunakan format kode negara (62)
             val pesan = "Halo admin KopiqueApps, saya ingin bertanya."
-            val url = "https://wa.me/62882007844390}"
+            val url = "https://wa.me/62882007844390"
             startActivity(Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(url) })
         }
 
